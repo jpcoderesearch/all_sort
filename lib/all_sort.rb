@@ -19,7 +19,7 @@ module AllSort
 		return [] if arr.empty?
 		piv = arr.sample
 		left, right = arr.partition(&piv.method(:>))
-		return qs(left)+[piv]+qs(right)
+		return quick_sort(left)+[piv]+quick_sort(right)
  end
  def merge_sort arr
  	return arr if arr.length <=1
