@@ -6,7 +6,7 @@ module AllSort
  	loop do
  		swapped = false
  		(n-1).times do |i|
- 			if arr[i] < array[i+1]
+ 			if arr[i] < arr[i+1]
  				arr[i],arr[i+1] = arr[i+1],arr[i]
  				swapped = true
  			end
@@ -16,10 +16,10 @@ module AllSort
  	arr
  end
  def quick_sort arr
- 	return [] if arr.empty?
- 	pivot = arr.delete_at(rand(size))
- 	left, right = arr.partition(&pivot.method(:>))
- 	return quick_sort(left)+pivot+quick_sort(right)
+		return [] if arr.empty?
+		piv = arr.sample
+		left, right = arr.partition(&piv.method(:>))
+		return qs(left)+[piv]+qs(right)
  end
  def merge_sort arr
  	return arr if arr.length <=1
